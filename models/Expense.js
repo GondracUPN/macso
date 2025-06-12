@@ -1,5 +1,4 @@
-// Proyecto/models/Expense.js
-
+// models/Expense.js
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
@@ -11,6 +10,11 @@ const ExpenseSchema = new Schema({
   },
   descripcion: {
     type: String,
+    required: true
+  },
+  tipo: {
+    type: String,
+    enum: ["gasto importacion", "gasto vario", "gastos recurrentes"],
     required: true
   },
   monto: {

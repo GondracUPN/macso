@@ -117,11 +117,7 @@ function Compras() {
       };
       console.log("Enviando datos al backend:", datos);
       await axios.post(
-<<<<<<< HEAD
-        "/api/producto/registrar",
-=======
         "https://macso.onrender.com/api/producto/registrar",
->>>>>>> d7cb786 (Actualización: se corrigieron errores y se agregó nueva funcionalidad)
         datos
       );
       setShowModal(false);
