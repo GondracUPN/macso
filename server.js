@@ -27,7 +27,7 @@ mongoose.connect(process.env.MONGO_URI, {
   const productRoutes = require("./routes/product");
   app.use("/api/producto", productRoutes);
 
-  const expenseRoutes = require("./routes/expense");
+  const expenseRoutes = require("./routes/gastos");
 app.use("/api/gastos", expenseRoutes);
 
   app.get("/api/mensaje", (req, res) => {
