@@ -2,7 +2,7 @@
 const express = require("express");
 const router = express.Router();
 const jwt = require("jsonwebtoken");
-const Expense = require("../models/Expense");
+const Expense = require("../models/Gastos");
 require("dotenv").config();
 
 // Middleware de JWT
