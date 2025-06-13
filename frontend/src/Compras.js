@@ -69,11 +69,12 @@ function Compras() {
     setFechaCompra(new Date().toISOString().split("T")[0]);
     setTracking("");
   };
+  const BASE_API = "https://macso.onrender.com";
 
   const fetchProductos = async () => {
     try {
       const res = await axios.get(
-        "https://macso.onrender.com/api/producto"
+        "${BASE_API}/producto"
       );
       console.log("Respuesta del backend:", res.data);
       if (Array.isArray(res.data)) {
@@ -117,7 +118,7 @@ function Compras() {
       };
       console.log("Enviando datos al backend:", datos);
       await axios.post(
-        "https://macso.onrender.com/api/producto/registrar",
+        "${BASE_API}/producto/registrar",
         datos
       );
       setShowModal(false);
@@ -151,7 +152,7 @@ function Compras() {
       };
       console.log("Actualizando datos en backend:", datos);
       await axios.put(
-        `https://macso.onrender.com/api/producto/editar/${currentProductId}`,
+        `${BASE_API}/producto/editar/${currentProductId}`,
         datos
       );
       setShowModal(false);
@@ -171,7 +172,7 @@ function Compras() {
         estatus: "Vendido",
       };
       await axios.put(
-        `https://macso.onrender.com/api/producto/${currentProductId}`,
+        `${BASE_API}/producto/${currentProductId}`,
         datosVenta
       );
       setShowVentaModal(false);
@@ -190,7 +191,7 @@ function Compras() {
         fechaVenta,
       };
       await axios.put(
-        `https://macso.onrender.com/api/producto/${currentProductId}`,
+        `${BASE_API}/producto/${currentProductId}`,
         datosVenta
       );
       setShowVentaModal(false);
@@ -243,7 +244,7 @@ function Compras() {
     if (!window.confirm("¿Seguro que deseas borrar este producto?")) return;
     try {
       await axios.delete(
-        `https://macso.onrender.com/api/producto/${id}`
+        `${BASE_API}/producto/${id}`
       );
       fetchProductos();
     } catch (error) {
