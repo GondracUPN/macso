@@ -69,12 +69,12 @@ function Compras() {
     setFechaCompra(new Date().toISOString().split("T")[0]);
     setTracking("");
   };
-  const BASE_API = "https://macso.onrender.com";
+  const BASE_API = "https://macso.onrender.com/api";
 
   const fetchProductos = async () => {
     try {
       const res = await axios.get(
-        "${BASE_API}/producto"
+        `${BASE_API}/producto`
       );
       console.log("Respuesta del backend:", res.data);
       if (Array.isArray(res.data)) {
@@ -118,7 +118,7 @@ function Compras() {
       };
       console.log("Enviando datos al backend:", datos);
       await axios.post(
-        "${BASE_API}/producto/registrar",
+        `${BASE_API}/producto/registrar`,
         datos
       );
       setShowModal(false);

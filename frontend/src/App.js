@@ -8,6 +8,8 @@ import Gastos from "./Gastos";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
+const BASE_API = "https://macso.onrender.com/api";
+
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -20,7 +22,7 @@ function Login() {
     e.preventDefault();
     try {
 
-      const res = await axios.post(`https://macso.onrender.com/api/auth/login`, { email, password });
+      const res = await axios.post(`${BASE_API}/auth/login`, { email, password });
       localStorage.setItem("token", res.data.token);
       navigate("/home"); // Redirigir a la página principal
     } catch (err) {
@@ -31,7 +33,7 @@ function Login() {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(`https://macso.onrender.com/api/auth/register`, { name, email, password });
+      const res = await axios.post(`${BASE_API}/auth/register`, { name, email, password });
       localStorage.setItem("token", res.data.token);
       setMensaje("Usuario creado correctamente! Ahora inicia sesión.");
       setIsRegistering(false);
